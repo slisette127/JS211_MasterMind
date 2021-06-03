@@ -28,8 +28,17 @@ const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-const generateHint = () =>  {
+const generateHint = (guess) =>  {
   // your code here
+  //is the color correct?
+  //is it in the correct spot?
+ 
+  //loop and equality check, .includes ,Checks if it has the correct letter is in the correct spot in the index
+  if (guess.includes('a', 'b', 'c', 'd')){
+    return 
+  }
+    // second loop, .includes to check if the correct letter is used. 
+
 }
 
 const mastermind = (guess) => {
