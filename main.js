@@ -29,16 +29,26 @@ const getRandomInt = (min, max) => {
 }
 
 const generateHint = (guess) =>  {
-  // your code here
-  //is the color correct?
-  //is it in the correct spot?
- 
-  //loop and equality check, .includes ,Checks if it has the correct letter is in the correct spot in the index
-  if (guess.includes('a', 'b', 'c', 'd')){
-    return 
-  }
-    // second loop, .includes to check if the correct letter is used. 
+  let solutionArray = solution.split('');
+  let guessArray = guess.split('');
+  let correctLetters = 0;
+  let correctLetterLocations = 0;
 
+  for (let i = 0; i < solutionArray.length; i++) {
+    if (solutionArray[i] == guessArray[i]) {
+      correctLetterLocations ++;
+      solutionArray[i] = null;
+    }
+  }
+  for (let i = 0; i < solutionArray.length; i++) {
+    let targetIndex = solutionArray.indexOf(guessArray[i])
+    if (targetIndex > -1) {
+      correctLetters++;
+      solutionArray[targetIndex] = null;
+    }
+  }
+  let hint = correctLetterLocations.toString() + "-" + correctLetters.toString();
+  return hint;
 }
 
 const mastermind = (guess) => {
